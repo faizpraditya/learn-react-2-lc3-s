@@ -8,40 +8,42 @@ class App extends Component {
     super(props)
     this.state = {
       logged:false,
-      menu:[
-        {
-          id: '001',
-          name : 'Ayam Geprek',
-          price : 25000
-        },
-        {
-          id: '002',
-          name : 'Ayam Bakar',
-          price : 30000
-        },
-        {
-          id: '003',
-          name : 'Ayam Goreng',
-          price : 20000
-        },
-      ],
-      table:[
-        {
-          id: '001',
-          number : '001',
-          status : "Available"
-        },
-        {
-          id: '002',
-          number : '002',
-          status : "Unavailable"
-        },
-        {
-          id: '003',
-          number : '003',
-          status : "Available"
-        },
-      ],
+      items:{
+        menu:[
+          {
+            id: '001',
+            name : 'Ayam Geprek',
+            price : 25000
+          },
+          {
+            id: '002',
+            name : 'Ayam Bakar',
+            price : 30000
+          },
+          {
+            id: '003',
+            name : 'Ayam Goreng',
+            price : 20000
+          },
+        ],
+        table:[
+          {
+            id: '001',
+            number : '001',
+            status : "Available"
+          },
+          {
+            id: '002',
+            number : '002',
+            status : "Unavailable"
+          },
+          {
+            id: '003',
+            number : '003',
+            status : "Available"
+          },
+        ],
+      }
     }
   }
 
@@ -65,6 +67,18 @@ class App extends Component {
     })
   }
 
+  addTable = (newTable) => {
+    this.setState({
+      table:[...this.state.table, newTable]
+    })
+  }
+
+  addData = (data) => {
+    this.setState({
+      items:data
+    })
+  }
+
   logout = () => {
     this.setState({
       logged : false
@@ -77,10 +91,13 @@ class App extends Component {
       <>
         {
           this.state.logged ? <Home
-            menu = {this.state.menu}
-            table = {this.state.table}
+            menu = {this.state.items.menu}
+            table = {this.state.items.table}
             addMenu = {this.addMenu}
+            addTable = {this.addTable}
+            addData = {this.addData}
             logout = {this.logout}
+            handleInputChange = {this.handleInputChange}
           /> : <LoginScreen
             login = {this.login}
           /> 

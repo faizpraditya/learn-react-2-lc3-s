@@ -25,7 +25,7 @@ class ListTable extends Component {
         return(
             <>
             <div className="card bg-dark p-4 d-block">
-                <button onClick={this.props.clickTable} className="btn btn-primary mb-3">+ Tambah Table</button>
+                <button onClick={this.props.changeFormList} className="btn btn-primary mb-3">+ Tambah Table</button>
                 <table className="table table-hover table-dark table-striped">
                     <thead>
                         <tr>

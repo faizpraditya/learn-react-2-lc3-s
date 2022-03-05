@@ -6,18 +6,23 @@ class Table extends Component {
     state = {
         addForm : false,
     }
-    handleClickTable = () => {
+
+    changeFormList = () => {
         this.setState({
-            addForm : true
+            addForm : !this.state.addForm
         })
     }
+    
     render(){
         return(
             <>
                 {
                     this.state.addForm ? <FormTable
+                        changeFormList = {this.changeFormList}
+                        addTable = {this.props.addTable}
+                        addData = {this.props.addData}
                     /> : <ListTable
-                        clickTable = {this.handleClickTable}
+                        changeFormList = {this.changeFormList}
                         table = {this.props.table}
                     /> 
                 }

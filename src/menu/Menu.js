@@ -12,6 +12,7 @@ class Menu extends Component {
             addForm : !this.state.addForm
         })
     }
+
     render(){
         return(
             <>
@@ -19,6 +20,7 @@ class Menu extends Component {
                     this.state.addForm ? <FormMenu
                         changeFormList = {this.changeFormList}
                         addMenu = {this.props.addMenu}
+                        addData = {this.props.addData}
                     /> : <ListMenu
                         changeFormList = {this.changeFormList}
                         menu = {this.props.menu}

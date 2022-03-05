@@ -27,10 +27,13 @@ class Home extends Component {
             return <Menu
                 menu = {this.props.menu}
                 addMenu = {this.props.addMenu}
+                addData = {this.props.addData}
             />
         } else if (this.state.navbar === 'table') {
             return <Table
                 table = {this.props.table}
+                addTable = {this.props.addTable}
+                addData = {this.props.addData}
             />
         }
     }

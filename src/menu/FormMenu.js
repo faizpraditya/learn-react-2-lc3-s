@@ -1,4 +1,5 @@
 import { Component } from "react";
+import withSubmit from "../withSubmit";
 
 class FormMenu extends Component {
     state = {
@@ -24,10 +25,12 @@ class FormMenu extends Component {
     }
 
     handleSubmit = (event) => {
-        console.log(this.state);
-        this.props.addMenu(this.state)
-        this.props.changeFormList()
         event.preventDefault()
+        console.log(this.state);
+        // this.props.addMenu(this.state)
+        this.props.submit(this.state,1)
+        // this.props.addData(this.state)
+        this.props.changeFormList()
     }
 
     handleCancel = (event) => {
@@ -65,4 +68,5 @@ class FormMenu extends Component {
     }
 }
 
-export default FormMenu
+// export default FormMenu
+export default withSubmit(FormMenu)
